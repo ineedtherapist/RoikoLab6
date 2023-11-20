@@ -1,0 +1,60 @@
+table {
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+
+table tr th {
+    background: #aff;
+}
+
+
+table tr:nth-child(odd) td{
+    background: beige;
+}
+
+
+ul li a:hover{
+    background: #faa;
+    font-weight: bold;
+    
+}
+
+
+table tr:hover td{
+    background: #afa;
+}
+
+
+input[type='text'] {
+    width: 300px;
+    margin: 10px 15px;
+    border: 1px solid black;
+}
+
+
+input[type='text']:hover {
+    background: #e7edff;    
+}
+
+input[type='submit'] {
+    margin: 10px 15px 10px 150px;
+    font-weight: bold;
+    background-color: #b5c9ff;
+    padding: 10px;
+}
+
+input[type='submit']:hover {
+    background-color: #1645c7;
+    color: #fff;
+}
+
+
+form {
+    width: 500px;
+    border: 1px solid black;
+    background: #ffa;
+}
+

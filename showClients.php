@@ -19,7 +19,7 @@
         printf("<h3>Список клієнтів:</h3>");
         printf("<table><tr><th>ID</th><th>name</th><th>lastname</th><th>middlename</th><th>phone_number</th><th>date_birth</th><th>allergies</th></tr>");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            printf("<tr><td>%s</td><td>%s</td></tr>", $row['id'], $row['name'], $row['middlename'], $row['lastname']);
+            printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>   </tr>", $row['id'], $row['name'], $row['lastname'], $row['middlename'], $row['phone_number'], $row['date_birth'], $row['allergies']);
         };
         printf("</table>");
     } catch (PDOException $e) {

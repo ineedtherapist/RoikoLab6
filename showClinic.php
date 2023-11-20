@@ -15,12 +15,12 @@
     include "databaseConnect.php";
 
     try {
-        $stmt = $pdo->query("SELECT * FROM groups");
+        $stmt = $pdo->query("SELECT * FROM clinic");
         // Виконання запиту і отримання результатів
-        printf("<h3>Список груп:</h3>");
-        printf("<table><tr><th>ІД Групи</th><th>Назва групи</th></tr>");
+        printf("<h3>Список клінік:</h3>");
+        printf("<table><tr><th>ID</th><th>Назва клініки</th><th>Місто</th><th>Назва вулиці</th><th>Номер вулиці</th></tr>");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            printf("<tr><td>%s</td><td>%s</td></tr>", $row['id'], $row['name']);
+            printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>", $row['id'], $row['name'], $row['city'], $row['street_name'], $row['street_num']);
         };
         printf("</table>");
     } catch (PDOException $e) {
@@ -32,7 +32,6 @@
     <br><br><br>
 
     <ul>
-        <li><a href="showGroupsStudCount.php">Звіт Кількість студентів в групі</a><br></li>
         <li><a href="index.html">На головну</a><br></li>
     </ul>
     

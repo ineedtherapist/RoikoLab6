@@ -14,12 +14,12 @@
     include "databaseConnect.php";
 
     try {
-        $stmt = $pdo->query("SELECT * FROM curators");
+        $stmt = $pdo->query("SELECT * FROM clients");
         // Виконання запиту і отримання результатів
-        printf("<h3>Список кураторів:</h3>");
-        printf("<table><tr><th>ІД куратора</th><th>Імʼя куратора</th></tr>");
+        printf("<h3>Список клієнтів:</h3>");
+        printf("<table><tr><th>ID</th><th>name</th><th>lastname</th><th>middlename</th><th>phone_number</th><th>date_birth</th><th>allergies</th></tr>");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            printf("<tr><td>%s</td><td>%s</td></tr>", $row['id'], $row['name']);
+            printf("<tr><td>%s</td><td>%s</td></tr>", $row['id'], $row['name'], $row['middlename'], $row['lastname']);
         };
         printf("</table>");
     } catch (PDOException $e) {

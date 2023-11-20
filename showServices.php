@@ -3,23 +3,23 @@
 <meta charset="utf-8">
     <meta name="keywords" content="Лабораторна робота, MySQL, робота з базою даних">
     <meta name="description" content="Лабораторна робота. Робота з базою даних">
-    <title>Таблиця Clients</title>
+    <title>Таблиця Services</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Таблиця Clients</h1>
+    <h1>Таблиця Services</h1>
 
     <?php
 
     include "databaseConnect.php";
 
     try {
-        $stmt = $pdo->query("SELECT * FROM curators");
+        $stmt = $pdo->query("SELECT * FROM services");
         // Виконання запиту і отримання результатів
-        printf("<h3>Список кураторів:</h3>");
-        printf("<table><tr><th>ІД куратора</th><th>Імʼя куратора</th></tr>");
+        printf("<h3>Список послуг:</h3>");
+        printf("<table><tr><th>ID</th><th>Назва послуги</th><th>Вартість</th></tr>");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            printf("<tr><td>%s</td><td>%s</td></tr>", $row['id'], $row['name']);
+            printf("<tr><td>%s</td><td>%s</td><td>%s$</td></tr>", $row['id'], $row['name'], $row['price']);
         };
         printf("</table>");
     } catch (PDOException $e) {

@@ -21,7 +21,7 @@
 
     if (isset($_POST['search_appoint']) && !empty($_POST['search_appoint'])) {
         $search = "%" . $_POST['search_appoint'] . "%";;
-        $stmt = $pdo->prepare("SELECT c.name AS client_name, a.id AS appointment_id FROM appointments a LEFT JOIN clients c ON a.client_id = c.id WHERE c.name LIKE :search");
+        $stmt = $pdo->prepare("SELECT c.name AS client_name, a.id AS appointment_id, a.appoint_time AS appointment_time, d.name AS dentist_name, cl.name AS clinic_name  FROM appointments a LEFT JOIN dentists d ON d.id = a.dentist_id LEFT JOIN clinic cl ON cl.id = a.clinic_id LEFT JOIN clients c ON c.id = a.client_id WHERE c.name LIKE :search");
         $stmt->bindParam(':search', $search);
         $stmt->execute();
 
@@ -30,8 +30,8 @@
         if ($count > 0) {
             // Виводимо результати запиту
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                printf("<table><tr><th>Ім'я клієнта</th><th>Ідентифікатор запису</th></tr>");
-                printf("<tr><td>%s</td><td>%s</td></tr></table>", $row['client_name'], $row['appointment_id']);
+                printf("<table><tr><th>Ім'я клієнта</th><th>Ідентифікатор запису</th><th>Час запису</th><th>Ім'я лікаря</th><th>Клініка</th></tr>");
+                printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr></table>", $row['client_name'], $row['appointment_id'], $row['appointment_time'], $row['dentist_name'], $row['clinic_name']);
             }
         } else {
             echo "Немає результатів для вашого запиту.";

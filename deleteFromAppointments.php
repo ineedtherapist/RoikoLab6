@@ -8,11 +8,11 @@ $id = $_POST['delete_id'];
 $stmt = $pdo->prepare("DELETE FROM students WHERE id=:id");
 $stmt->bindParam(':id', $id);
 if ($stmt->execute()) {
-    echo "Студент видалений успішно!";
+    echo "Запис виалено успішно!";
 } else {
-    echo "Помилка видалення студента.";
+    echo "Помилка видалення запису.";
 }
 
 
-include("showStudents.php")
+include("showAppointments.php")
 ?>

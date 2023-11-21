@@ -21,7 +21,7 @@
 
     if (isset($_POST['search_appoint']) && !empty($_POST['search_appoint'])) {
         $search = "%" . $_POST['search_appoint'] . "%";;
-        $stmt = $pdo->prepare("SELECT c.name AS client_name, a.id AS appointment_id, a.appoint_time AS appointment_time, d.name AS dentist_name, cl.name AS clinic_name  FROM appointments a LEFT JOIN dentists d ON d.id = a.dentist_id LEFT JOIN clinic cl ON cl.id = a.clinic_id LEFT JOIN clients c ON c.id = a.client_id WHERE c.name LIKE :search");
+        $stmt = $pdo->prepare("SELECT c.name AS client_name, a.id AS appointment_id, a.appoint_time AS appointment_time, s.name AS service_name, d.name AS dentist_name, cl.name AS clinic_name  FROM appointments a LEFT JOIN dentists d ON d.id = a.dentist_id LEFT JOIN clinic cl ON cl.id = a.clinic_id LEFT JOIN services s ON s.id = a.service_id LEFT JOIN clients c ON c.id = a.client_id WHERE c.name LIKE :search");
         $stmt->bindParam(':search', $search);
         $stmt->execute();
 
@@ -29,11 +29,13 @@
 
         if ($count > 0) {
             // Виводимо результати запиту
+            printf("<table><tr><th>Ім'я клієнта</th><th>Ідентифікатор запису</th><th>Послуга</th><th>Час запису</th><th>Ім'я лікаря</th><th>Клініка</th></tr>");
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                printf("<table><tr><th>Ім'я клієнта</th><th>Ідентифікатор запису</th><th>Час запису</th><th>Ім'я лікаря</th><th>Клініка</th></tr>");
-                printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr></table>", $row['client_name'], $row['appointment_id'], $row['appointment_time'], $row['dentist_name'], $row['clinic_name']);
+                printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>", $row['client_name'], $row['appointment_id'], $row['service_name'] ,$row['appointment_time'], $row['dentist_name'], $row['clinic_name']);
             }
-        } else {
+            printf("</table>");
+        }
+        else {
             echo "Немає результатів для вашого запиту.";
         }
     }
@@ -42,9 +44,11 @@
     <br><br><br>
 
     <ul>
-        <li><a href="showStudents.php">Таблиця Students</a><br></li>
-        <li><a href="showGroups.php">Таблиця Groups</a><br></li>
-        <li><a href="showCurators.php">Таблиця Curators</a><br></li>
+        <li><a href="showAppointments.php">Таблиця Appointments</a><br></li>
+        <li><a href="showClinic.php">Таблиця Clinic</a><br></li>
+        <li><a href="showClients.php">Таблиця Clients</a><br></li>
+        <li><a href="showDentists.php">Таблиця Dentists</a><br></li>
+        <li><a href="showServices.php">Таблиця Services</a><br></li>
         <li><a href="index.html">На головну</a><br></li>
     </ul>
 

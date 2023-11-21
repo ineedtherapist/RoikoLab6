@@ -31,12 +31,17 @@ table tr:hover td{
 }
 
 
-input[type='text'] {
+input[type='text']{
     width: 300px;
     margin: 10px 15px;
     border: 1px solid black;
 }
 
+input[type='datetime-local'] {
+    width: 300px;
+    margin: 10px 15px;
+    border: 1px solid black;
+}
 
 input[type='text']:hover {
     background: #e7edff;    

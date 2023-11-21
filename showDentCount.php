@@ -34,11 +34,6 @@
     <br><br><br>
 
     <ul>
-        <li><a href="showAppointments.php">Таблиця Appointments</a><br></li>
-        <li><a href="showClinic.php">Таблиця Clinic</a><br></li>
-        <li><a href="showClients.php">Таблиця Clients</a><br></li>
-        <li><a href="showDentists.php">Таблиця Dentists</a><br></li>
-        <li><a href="showServices.php">Таблиця Services</a><br></li>
         <li><a href="index.html">На головну</a><br></li>
     </ul>
 

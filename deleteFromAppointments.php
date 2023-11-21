@@ -5,14 +5,14 @@ include "databaseConnect.php";
 
 
 $id = $_POST['delete_id'];
-$stmt = $pdo->prepare("DELETE FROM students WHERE id=:id");
+$stmt = $pdo->prepare("DELETE FROM appointments WHERE id=:id");
 $stmt->bindParam(':id', $id);
 if ($stmt->execute()) {
-    echo "Запис виалено успішно!";
+    echo "Запис видалено успішно!";
 } else {
     echo "Помилка видалення запису.";
 }
 
-
-include("showAppointments.php")
+header("Location: showAppointments.php");
+die();
 ?>

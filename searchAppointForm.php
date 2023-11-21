@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Лабораторна робота, MySQL, робота з базою даних">
     <meta name="description" content="Лабораторна робота. Робота з базою даних">
-    <title>Пошук студента</title>
+    <title>Пошук запису</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Пошук студента</h1>
+    <h1>Пошук запису</h1>
 
     <form method="POST" action="">
-        <input type="text" name="search_student" placeholder="Частина імені студента">
-        <input type="submit" value="Пошук студента">
+        <input type="text" name="search_appoint" placeholder="Ім'я клієнта">
+        <input type="submit" value="Пошук запису">
     </form>
 
     <?php
     include "databaseConnect.php";
 
-    if (isset($_POST['search_student']) && !empty($_POST['search_student'])) {
-        $search = "%" . $_POST['search_student'] . "%";;
-        $stmt = $pdo->prepare("SELECT s.name AS student_name, g.name AS group_name FROM students s LEFT JOIN groups g ON s.group_id = g.id WHERE s.name LIKE :search");
+    if (isset($_POST['search_appoint']) && !empty($_POST['search_appoint'])) {
+        $search = "%" . $_POST['search_appoint'] . "%";;
+        $stmt = $pdo->prepare("SELECT c.name AS client_name, a.id AS appointment_id FROM appointments a LEFT JOIN clients c ON a.client_id = c.id WHERE c.name LIKE :search");
         $stmt->bindParam(':search', $search);
         $stmt->execute();
 
@@ -30,7 +30,8 @@
         if ($count > 0) {
             // Виводимо результати запиту
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo " Ім'я: " . $row['student_name'] . ". Група: " . $row['group_name'] . "<br>";
+                printf("<table><tr><th>Ім'я клієнта</th><th>Ідентифікатор запису</th></tr>");
+                printf("<tr><td>%s</td><td>%s</td></tr></table>", $row['client_name'], $row['appointment_id']);
             }
         } else {
             echo "Немає результатів для вашого запиту.";

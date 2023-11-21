@@ -33,7 +33,7 @@
     <br><br><br>
 
     <ul>
-        <li><a href="searchStudentsForm.php">Пошук студента</a><br></li>
+        <li><a href="searchAppointForm.php">Пошук запису</a><br></li>
         <li><a href="insertIntoStudentsForm.php">Вставити рядок</a><br></li>
         <li><a href="updateStudentsForm.php">Змінити рядок</a><br></li>
         <li><a href="deleteFromStudentsForm.php">Видалити рядок</a><br></li>

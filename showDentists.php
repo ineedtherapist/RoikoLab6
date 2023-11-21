@@ -17,7 +17,7 @@
     try {
         $stmt = $pdo->query("SELECT * FROM dentists");
         // Виконання запиту і отримання результатів
-        printf("<h3>Список Лікарів:</h3>");
+        printf("<h3>Список лікарів:</h3>");
         printf("<table><tr><th>ID</th><th>name</th><th>lastname</th><th>middlename</th><th>post</th><th>clinic_id</th><th>phone_number</th><th>date_birth</th><th>hiring_date</th></tr>");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>", $row['id'], $row['name'], $row['lastname'], $row['middlename'], $row['post'], $row['clinic_id'], $row['phone_number'], $row['date_birth'], $row['hiring_date'] );
@@ -32,7 +32,7 @@
     <br><br><br>
 
     <ul>
-        <li><a href="showGroupsStudCount.php">Звіт Кількість студентів в групі</a><br></li>
+        <li><a href="showDentCount.php">Звіт Кількість лікарів</a><br></li>
         <li><a href="index.html">На головну</a><br></li>
     </ul>
     

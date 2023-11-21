@@ -10,13 +10,13 @@
 <body>
 
     <?php
-    include "showStudents.php";
+    include "showAppointments.php";
     ?>
 
 
-    <form method="POST" action="deleteFromStudents.php">
-        <input type="text" name="delete_id" placeholder="ID студента для видалення">
-        <input type="submit" value="Видалити студента">
+    <form method="POST" action="deleteFromAppointments.php">
+        <input type="text" name="delete_id" placeholder="Введіть ID прийому для видалення">
+        <input type="submit" value="Видалити прийом">
     </form>
 
 </body>

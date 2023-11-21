@@ -32,7 +32,7 @@
 
     <ul>
         <li><a href="searchClientForm.php">Пошук клієнта</a><br></li>
-        <li><a href="insertIntoAppointmentsForm.php">Додати клієнта</a><br></li>
+        <li><a href="insertIntoClientForm.php">Додати клієнта</a><br></li>
         <li><a href="updateAppointmentsForm.php">Змінити дані про клієнта</a><br></li>
         <li><a href="deleteFromAppointmentsForm.php">Видалити дані про клієнта</a><br></li>
         <li><a href="index.html">На головну</a><br></li>

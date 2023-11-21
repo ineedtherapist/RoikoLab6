@@ -13,11 +13,8 @@ $stmt->bindParam(':appoint_time', $appoint_time);
 $stmt->bindParam(':dentist_id', $dentist_id);
 $stmt->bindParam(':service_id', $service_id);
 $stmt->bindParam(':clinic_id', $clinic_id);
-if ($stmt->execute()) {
-    echo "Запис доданий успішно!";
-} else {
-    echo "Помилка додавання запису.";
-}
+$stmt->execute();
+
 
 header("Location: showAppointments.php");
 die();

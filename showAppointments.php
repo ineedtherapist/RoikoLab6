@@ -19,7 +19,7 @@
         $stmt = $pdo->query("SELECT * FROM appointments");
         // Виконання запиту і отримання результатів
         printf("<h3>Список записів:</h3>");
-        printf("<table><tr><th>ID</th><th>service_id</th><th>appoint_time</th><th>client_id </th><th>dentist_id</th><th>clinic_id </th></tr>");
+        printf("<table><tr><th>ID</th><th>service_id</th><th>appoint_time</th><th>client_id </th><th>dentist_id</th><th>clinic_id</th></tr>");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>", $row['id'], $row['service_id'], $row['appoint_time'], $row['client_id'], $row['dentist_id'], $row['clinic_id']);
         };

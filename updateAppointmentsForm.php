@@ -11,15 +11,15 @@
 <body>
 
     <?php
-    include "showStudents.php";
+    include "showAppointments.php";
     ?>
 
 
-    <form method="POST" action="updateStudents.php">
-        <input type="text" name="update_id" placeholder="ID студента">
-        <input type="text" name="update_name" placeholder="Ім'я студента">
-        <input type="text" name="update_group_id" placeholder="ID групи">
-        <input type="submit" value="Оновити студента">
+    <form method="POST" action="updateAppointments.php">
+        <input type="text" name="update_id" placeholder="ID запису">
+        <input type="text" name="update_appoint_time" placeholder="Час запису">
+        <input type="text" name="update_dentist_id" placeholder="ID лікаря">
+        <input type="submit" value="Оновити запис">
     </form>
 
 </body>

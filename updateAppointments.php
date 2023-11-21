@@ -2,19 +2,19 @@
 
 include "databaseConnect.php";
 
-$student_id = $_POST['update_id'];
-$student_name = $_POST['update_name'];
-$group_id = $_POST['update_group_id'];
-$stmt = $pdo->prepare("UPDATE students SET name=:student_name, group_id=:group_id WHERE id=:student_id");
-$stmt->bindParam(':student_id', $student_id);
-$stmt->bindParam(':student_name', $student_name);
-$stmt->bindParam(':group_id', $group_id);
+$id = $_POST['update_id'];
+$appoint_time = $_POST['update_appoint_time'];
+$dentist_id = $_POST['update_dentist_id'];
+$stmt = $pdo->prepare("UPDATE appointments SET id=:app_id, appoint_time=:appoint_time, dentist_id=:dentist_id WHERE id=:app_id );
+$stmt->bindParam(':id', $app_id);
+$stmt->bindParam(':appoint_time', $appoint_time);
+$stmt->bindParam(':dentist_id', $dentist_id);
 if ($stmt->execute()) {
-    echo "Студент оновлений успішно!";
+    printf("Запис оновлено успішно!");
 } else {
-    echo "Помилка оновлення студента.";
+    echo "Помилка оновлення запису";
 }
 
 
-include("showStudents.php")
+include("showAppointments.php")
 ?>

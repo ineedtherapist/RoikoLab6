@@ -37,7 +37,6 @@
         <li><a href="insertIntoStudentsForm.php">Вставити рядок</a><br></li>
         <li><a href="updateStudentsForm.php">Змінити рядок</a><br></li>
         <li><a href="deleteFromStudentsForm.php">Видалити рядок</a><br></li>
-        <li><a href="showStudentsGroupsKurators.php">Звіт Студенти - Групи - Куратори</a><br></li>
         <li><a href="index.html">На головну</a><br></li>
     </ul>
 

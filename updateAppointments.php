@@ -9,12 +9,9 @@ $stmt = $pdo->prepare("UPDATE appointments SET id=:id, appoint_time=:appoint_tim
 $stmt->bindParam(':id', $app_id);
 $stmt->bindParam(':appoint_time', $appoint_time);
 $stmt->bindParam(':dentist_id', $dentist_id);
-if ($stmt->execute()) {
-    echo "Запис оновлено успішно!";
-} else {
-    echo "Помилка оновлення запису";
-}
+$stmt->execute();
 
 
-include("showAppointments.php")
+header("Location: showAppointments.php");
+die();
 ?>
